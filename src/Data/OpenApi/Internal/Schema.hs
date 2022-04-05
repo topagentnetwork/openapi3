@@ -69,7 +69,7 @@ import           Data.OpenApi.Declare
 import           Data.OpenApi.Internal
 import           Data.OpenApi.Internal.ParamSchema (ToParamSchema (..))
 import           Data.OpenApi.Internal.TypeShape
-import           Data.OpenApi.Lens                 hiding (name, schema)
+import           Data.OpenApi.Lens                 
 import qualified Data.OpenApi.Lens                 as Swagger
 import           Data.OpenApi.SchemaOptions
 
@@ -614,7 +614,7 @@ instance ToSchema Float       where declareNamedSchema = plain . paramSchemaToSc
 instance (Typeable (Fixed a), HasResolution a) => ToSchema (Fixed a) where declareNamedSchema = plain . paramSchemaToSchema
 
 instance ToSchema a => ToSchema (Maybe a) where
-  declareNamedSchema _ = declareNamedSchema (Proxy :: Proxy a)
+  declareNamedSchema _ = declareNamedSchema (Proxy :: Proxy a) <&> (\s -> s & schema . nullable ?~ True & name %~ fmap ("Nullable" <>)) 
 
 instance (ToSchema a, ToSchema b) => ToSchema (Either a b) where
   -- To match Aeson instance
@@ -1007,8 +1007,8 @@ instance {-# OVERLAPPING #-} (Selector s, ToSchema c) => GToSchema (S1 s (K1 i (
 instance {-# OVERLAPPABLE #-} (Selector s, GToSchema f) => GToSchema (S1 s f) where
   gdeclareNamedSchema opts _ = fmap unnamed . withFieldSchema opts (Proxy2 :: Proxy2 s f) True
 
-instance {-# OVERLAPPING #-} ToSchema c => GToSchema (K1 i (Maybe c)) where
-  gdeclareNamedSchema _ _ _ = declareNamedSchema (Proxy :: Proxy c)
+instance {-# OVERLAPPING #-} ToSchema (Maybe c) => GToSchema (K1 i (Maybe c)) where
+  gdeclareNamedSchema _ _ _ = declareNamedSchema (Proxy :: Proxy (Maybe c))
 
 instance {-# OVERLAPPABLE #-} ToSchema c => GToSchema (K1 i c) where
   gdeclareNamedSchema _ _ _ = declareNamedSchema (Proxy :: Proxy c)
