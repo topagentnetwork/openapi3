@@ -27,7 +27,7 @@ module Data.OpenApi.Internal.Schema.Validation where
 import           Prelude                             ()
 import           Prelude.Compat
 
-import           Control.Applicative
+import           Control.Applicative                 (Alternative((<|>), empty))
 import           Control.Lens                        hiding (allOf, anyOf)
 import           Control.Monad                       (forM, forM_, when)
 
@@ -35,7 +35,7 @@ import           Data.Aeson                          hiding (Result)
 #if MIN_VERSION_aeson(2,0,0)
 import qualified Data.Aeson.KeyMap as KeyMap
 #endif
-import           Data.Foldable                       (for_, sequenceA_,
+import           Data.Foldable                       (asum, for_, sequenceA_,
                                                       traverse_)
 #if !MIN_VERSION_aeson(2,0,0)
 import           Data.HashMap.Strict                 (HashMap)
