@@ -303,6 +303,7 @@ characterSchemaJSON = [aesonQQ|
         "tag",
         "contents"
       ],
+      "title": "PC",
       "type": "object",
       "properties": {
         "tag": {
@@ -322,6 +323,7 @@ characterSchemaJSON = [aesonQQ|
         "npcPosition",
         "tag"
       ],
+      "title": "NPC",
       "type": "object",
       "properties": {
         "tag": {
@@ -352,6 +354,7 @@ characterInlinedSchemaJSON = [aesonQQ|
         "tag",
         "contents"
       ],
+      "title": "PC",
       "type": "object",
       "properties": {
         "tag": {
@@ -393,6 +396,7 @@ characterInlinedSchemaJSON = [aesonQQ|
         "npcPosition",
         "tag"
       ],
+      "title": "NPC",
       "type": "object",
       "properties": {
         "tag": {
@@ -436,6 +440,7 @@ characterInlinedPlayerSchemaJSON = [aesonQQ|
         "tag",
         "contents"
       ],
+      "title": "PC",
       "type": "object",
       "properties": {
         "tag": {
@@ -463,6 +468,7 @@ characterInlinedPlayerSchemaJSON = [aesonQQ|
         "npcPosition",
         "tag"
       ],
+      "title": "NPC",
       "type": "object",
       "properties": {
         "tag": {
@@ -787,6 +793,7 @@ lightSchemaJSON = [aesonQQ|
       "required": [
         "tag"
       ],
+      "title": "NoLight",
       "type": "object",
       "properties": {
         "tag": {
@@ -802,6 +809,7 @@ lightSchemaJSON = [aesonQQ|
         "tag",
         "contents"
       ],
+      "title": "LightFreq",
       "type": "object",
       "properties": {
         "tag": {
@@ -821,6 +829,7 @@ lightSchemaJSON = [aesonQQ|
         "tag",
         "contents"
       ],
+      "title": "LightColor",
       "type": "object",
       "properties": {
         "tag": {
@@ -839,6 +848,7 @@ lightSchemaJSON = [aesonQQ|
         "waveLength",
         "tag"
       ],
+      "title": "LightWaveLength",
       "type": "object",
       "properties": {
         "tag": {
@@ -865,6 +875,7 @@ lightInlinedSchemaJSON = [aesonQQ|
       "required": [
         "tag"
       ],
+      "title": "NoLight",
       "type": "object",
       "properties": {
         "tag": {
@@ -880,6 +891,7 @@ lightInlinedSchemaJSON = [aesonQQ|
         "tag",
         "contents"
       ],
+      "title": "LightFreq",
       "type": "object",
       "properties": {
         "tag": {
@@ -899,6 +911,7 @@ lightInlinedSchemaJSON = [aesonQQ|
         "tag",
         "contents"
       ],
+      "title": "LightColor",
       "type": "object",
       "properties": {
         "tag": {
@@ -922,6 +935,7 @@ lightInlinedSchemaJSON = [aesonQQ|
         "waveLength",
         "tag"
       ],
+      "title": "LightWaveLength",
       "type": "object",
       "properties": {
         "tag": {
@@ -1094,6 +1108,7 @@ predicateSchemaDeclareJSON = [aesonQQ|
             "tag": { "enum": ["PredicateNoun"], "type": "string" }
           },
           "required": ["tag", "contents"],
+          "title": "PredicateNoun",
           "type": "object"
         },
         {
@@ -1102,6 +1117,7 @@ predicateSchemaDeclareJSON = [aesonQQ|
             "tag": { "enum": ["PredicateOmitted"], "type": "string" }
           },
           "required": ["tag", "contents"],
+          "title": "PredicateOmitted",
           "type": "object"
         }
       ]
@@ -1133,6 +1149,7 @@ predicateSchemaDeclareJSON = [aesonQQ|
             "tag": { "enum": ["ModifierNoun"], "type": "string" }
           },
           "required": ["tag", "contents"],
+          "title": "ModifierNoun",
           "type": "object"
         },
         {
@@ -1141,6 +1158,7 @@ predicateSchemaDeclareJSON = [aesonQQ|
             "tag": { "enum": ["ModifierOmitted"], "type": "string" }
           },
           "required": ["tag", "contents"],
+          "title": "ModifierOmitted",
           "type": "object"
         }
       ]
